@@ -16,3 +16,23 @@ export const Table = styled.table`
         padding: 8px;
     }
 `
+
+export const Container = styled.section`
+    margin: 0px auto;
+    width: 70%;
+    max-width: 70%;
+`
+
+export const ButtonDanger = styled.button`
+    background-color: #fff;
+    color: #dc3545;
+    padding: 5px 8px;
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    :hover{
+        background-color: #dc3545;
+        color: #fff;
+    }
+`;
