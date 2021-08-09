@@ -32,7 +32,7 @@ function Index() {
     }
 
   async function findFuncionarios() {
-    const response = await api.get('/paged', { params: { pagina: page - 1, size: 10 } });
+    const response = await api.get('/paged', { params: { pagina: page - 1, size: 5 } });
     
     setFuncionarios(response.data.content);
 
