@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import api from '../api/api';
 import { Link } from 'react-router-dom';
+import { Pagination } from '@material-ui/lab'
 import { Table, 
          Container, 
          ButtonDanger, 
@@ -16,6 +17,8 @@ import '../App.css';
 function Index() {
 
     const [status, setStatus] = useState({type: "", mensagem: ""});
+    const [page, setPage] = useState(1);
+    const [totalPage, setTotalPage] = useState();
 
     function clearMessage() {
         let timeout = setTimeout(() => {
@@ -29,14 +32,16 @@ function Index() {
     }
 
   async function findFuncionarios() {
-    const response = await api.get('/paged', { params: { pagina: 0, size: 10 } });
+    const response = await api.get('/paged', { params: { pagina: page - 1, size: 10 } });
     
     setFuncionarios(response.data.content);
+
+    setTotalPage(response.data.totalPages)
   }
 
   useEffect(() => {
     findFuncionarios();
-  }, []);
+  }, [page]);
 
   const [funcionarios, setFuncionarios] = useState([]);
 
@@ -100,6 +105,8 @@ function Index() {
             ))}
           </tbody>
         </Table>
+
+        <Pagination count={totalPage} className="pagination" onChange={(e, page) => setPage(page)}/>
       </Container>
     </div>
   );

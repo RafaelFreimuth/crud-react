@@ -21,6 +21,7 @@ export const Container = styled.section`
     margin: 0px auto;
     width: 70%;
     max-width: 70%;
+    align-items: center;
 `
 
 export const ButtonDanger = styled.button`

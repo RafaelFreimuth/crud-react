@@ -16,3 +16,7 @@
 .App-link {
   color: #61dafb;
 }
+
+.pagination {
+  margin-left: calc(70% / 2);
+}
